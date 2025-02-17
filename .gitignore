@@ -1,0 +1,64 @@
+# 🚀 Python & Virtual Environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 🚀 Hugging Face Model Cache (Avoid committing downloaded models)
+~/.cache/huggingface/
+~/.huggingface/
+cache/
+models/
+data/
+
+# 🚀 Environment Variables (Hugging Face token, secrets, API keys)
+.env
+*.env
+
+# 🚀 Logs & Debug Files
+logs/
+*.log
+nohup.out
+debug.log
+docker.log
+
+# 🚀 Docker Build Files
+.Dockerfile.swp
+docker-compose.override.yml
+docker-compose.yml
+docker-compose.dev.yml
+docker-compose.prod.yml
+*.tar
+*.img
+.dockerignore
+docker-entrypoint.sh
+
+# 🚀 FastAPI & Uvicorn Debug Files
+*.pid
+instance/
+db.sqlite3
+db.sqlite3-journal
+
+# 🚀 Jupyter & VSCode Files
+.ipynb_checkpoints/
+.vscode/
+*.ipynb
+
+# 🚀 Node.js & Frontend (If using frontend with FastAPI)
+node_modules/
+dist/
+build/
+package-lock.json
+yarn.lock
+.npmrc
+
+# 🚀 macOS & System Files
+.DS_Store
+Thumbs.db
+
