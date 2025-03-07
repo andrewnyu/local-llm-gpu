@@ -12,8 +12,8 @@ This repository contains a FastAPI server that serves a Hugging Face LLaMA model
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd <repository-directory>
+git clone https://github.com/andrewnyu/local-llm-gpu
+cd local-llm-gpu
 ```
 
 ### 2. Set up your Hugging Face token
