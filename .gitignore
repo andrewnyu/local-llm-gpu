@@ -20,6 +20,7 @@ data/
 # 🚀 Environment Variables (Hugging Face token, secrets, API keys)
 .env
 *.env
+.github
 
 # 🚀 Logs & Debug Files
 logs/
