@@ -118,15 +118,32 @@ services:
 
 ## Model Configuration
 
-The server is configured to use `meta-llama/Llama-3.2-1B` by default. You can modify the `MODEL_NAME` variable in `server.py` to use a different model:
+The server is configured to use `meta-llama/Llama-3.2-3B` as the default model. You can change the model in two ways:
+
+### Option 1: Using Environment Variables (Recommended)
+
+Add the `MODEL_NAME` variable to your `.env` file:
+
+```bash
+# .env file
+HUGGINGFACE_TOKEN=your_huggingface_token
+MODEL_NAME=meta-llama/Llama-3.2-1B  # Use a different model
+```
+
+### Option 2: Modifying the Default in server.py
+
+You can also change the default model by modifying the `DEFAULT_MODEL` variable in `server.py`:
 
 ```python
-# Lightweight model for testing
-MODEL_NAME = "meta-llama/Llama-3.2-1B"
-
-# More capable model for production
-# MODEL_NAME = "meta-llama/Llama-3.2-3B"
+# Default model for production
+DEFAULT_MODEL = "meta-llama/Llama-3.2-3B"
 ```
+
+Available models include:
+- `meta-llama/Llama-3.2-1B` (fastest, smallest)
+- `meta-llama/Llama-3.2-3B` (better quality, still reasonable speed)
+- `meta-llama/Llama-3.2-8B` (higher quality, requires more resources)
+- `meta-llama/Llama-3.2-70B` (highest quality, requires significant resources)
 
 ## Hardware Requirements
 

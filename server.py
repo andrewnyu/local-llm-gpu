@@ -4,15 +4,16 @@ from fastapi import FastAPI
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from dotenv import load_dotenv
 
-# ✅ Load Hugging Face token
+# ✅ Load environment variables
 load_dotenv()
 HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 
 app = FastAPI()
 
-# ✅ Choose the model (use a lightweight one for testing)
-#MODEL_NAME = "meta-llama/Llama-3.2-1B"  # ⚡ MUCH faster than LLaMA
-MODEL_NAME = "meta-llama/Llama-3.2-3B"  # Model to be used for production
+# ✅ Get model name from environment variable or use default
+DEFAULT_MODEL = "meta-llama/Llama-3.2-3B"  # Default model for production
+MODEL_NAME = os.getenv("MODEL_NAME", DEFAULT_MODEL)
+print(f"🔄 Using model: {MODEL_NAME}")
 
 # ✅ Auto-detect the best device
 if torch.cuda.is_available():
