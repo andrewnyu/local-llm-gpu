@@ -14,10 +14,17 @@ RUN pip install --no-cache-dir fastapi uvicorn torch transformers accelerate sen
 COPY server.py .  
 COPY .env .
 
+# ✅ Create a custom entrypoint script to bypass the NVIDIA script
+RUN echo '#!/bin/bash' > /app/entrypoint.sh && \
+    echo 'set -e' >> /app/entrypoint.sh && \
+    echo '' >> /app/entrypoint.sh && \
+    echo '# Execute the command passed to docker run' >> /app/entrypoint.sh && \
+    echo 'exec "$@"' >> /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # ✅ Expose API port
 EXPOSE 8000
 
-# ✅ Start FastAPI server
+# ✅ Use our custom entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
-
-RUN chmod +x /opt/nvidia/nvidia_entrypoint.sh
