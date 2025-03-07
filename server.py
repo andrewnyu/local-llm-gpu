@@ -11,8 +11,8 @@ HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 app = FastAPI()
 
 # ✅ Choose the model (use a lightweight one for testing)
-MODEL_NAME = "meta-llama/Llama-3.2-1B"  # ⚡ MUCH faster than LLaMA
-#MODEL_NAME = "meta-llama/Llama-3.2-3B"  # Model to be used for production
+#MODEL_NAME = "meta-llama/Llama-3.2-1B"  # ⚡ MUCH faster than LLaMA
+MODEL_NAME = "meta-llama/Llama-3.2-3B"  # Model to be used for production
 
 # ✅ Auto-detect the best device
 if torch.cuda.is_available():
